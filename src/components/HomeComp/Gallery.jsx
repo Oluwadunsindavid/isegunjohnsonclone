@@ -43,7 +43,7 @@ const PauseOnHover = () => {
 
     responsive: [
       {
-        breakpoint: 640, // small screens
+        breakpoint: 768, // mobile and tablet screens
         settings: {
           slidesToShow: 1, // show 1 image
           slidesToScroll: 1,

@@ -225,13 +225,22 @@ const Navbar = () => {
 
       {/* Desktop Social Icons */}
       <div className="hidden md:flex justify-end text-white w-full space-x-4">
-        <Link className="w-10 h-10 border border-gray-700 hover:text-red-500 rounded-full flex items-center justify-center">
+        <Link
+          to="https://web.facebook.com/isegunjohnson?_rdc=1&_rdr#"
+          className="w-10 h-10 border border-gray-700 hover:text-red-500 rounded-full flex items-center justify-center"
+        >
           <FaFacebookF />
         </Link>
-        <Link className="w-10 h-10 border border-gray-700 hover:text-red-500 rounded-full flex items-center justify-center">
+        <Link
+          to="https://x.com/isegunjohnson"
+          className="w-10 h-10 border border-gray-700 hover:text-red-500 rounded-full flex items-center justify-center"
+        >
           <FaTwitter />
         </Link>
-        <Link className="w-10 h-10 border border-gray-700 hover:text-red-500 rounded-full flex items-center justify-center">
+        <Link
+          to="https://www.instagram.com/isegunjohnson/#"
+          className="w-10 h-10 border border-gray-700 hover:text-red-500 rounded-full flex items-center justify-center"
+        >
           <FaInstagram />
         </Link>
       </div>

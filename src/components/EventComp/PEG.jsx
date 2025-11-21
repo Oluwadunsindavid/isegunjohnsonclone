@@ -35,6 +35,7 @@ import at32 from "../../assets/19.webp";
 import at33 from "../../assets/20.webp";
 
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const details = [
   { image: at1, desc: "Washington DC Event", category: "Washington DC" },
@@ -82,7 +83,7 @@ const PEG = () => {
       : details.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="md:py-24 px-2 sm:px-24 md:px-36 ">
+    <div className="md:py-24 px-2 sm:px-24 xl:px-36 ">
       {/* px-24 md:px-36  */}
       {/* Title */}
       <div className="text-center font-medium text-[28px] sm:text-[33px] leading-relaxed text-[rgb(0,29,56)] transition-transform duration-300 pt-10 sm:pt-2">
@@ -132,15 +133,21 @@ const PEG = () => {
                 {detail.desc}
               </p>
               <div className="flex items-center justify-center gap-1 mt-2">
-                <i className="text-white hover:text-orange-500 cursor-pointer">
-                  <FaInstagram />
-                </i>
-                <i className="text-white hover:text-orange-500 cursor-pointer">
-                  <FaFacebookF />
-                </i>
-                <i className="text-white hover:text-orange-500 cursor-pointer">
-                  <FaTwitter />
-                </i>
+                <Link to="https://www.instagram.com/isegunjohnson/#">
+                  <i className="text-white hover:text-orange-500 cursor-pointer">
+                    <FaInstagram />
+                  </i>
+                </Link>
+                <Link to="https://web.facebook.com/isegunjohnson?_rdc=1&_rdr#">
+                  <i className="text-white hover:text-orange-500 cursor-pointer">
+                    <FaFacebookF />
+                  </i>
+                </Link>
+                <Link to="https://x.com/isegunjohnson">
+                  <i className="text-white hover:text-orange-500 cursor-pointer">
+                    <FaTwitter />
+                  </i>
+                </Link>
               </div>
             </div>
           </div>
