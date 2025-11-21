@@ -1,5 +1,5 @@
 import React from "react";
-import BGImg from "./assets/segun10.webp"
+import BGImg from "./assets/Segun10.webp"
 
 const ReuseableHero = ({ text1, text2 }) => {
   return (
