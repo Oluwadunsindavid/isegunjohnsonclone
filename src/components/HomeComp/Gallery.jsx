@@ -207,3 +207,4 @@ const PauseOnHover = () => {
     </div>
   );
 };
+export default PauseOnHover;
