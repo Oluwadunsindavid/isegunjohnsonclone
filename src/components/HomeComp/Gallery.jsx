@@ -20,7 +20,6 @@ import img17 from "../../assets/17.webp";
 import img18 from "../../assets/18.webp";
 import img19 from "../../assets/19.webp";
 import img20 from "../../assets/20.webp";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
@@ -33,25 +32,12 @@ const PauseOnHover = () => {
     autoplaySpeed: 0, // FASTER
     speed: 2000, // Smooth quick transition
     cssEase: "linear", // smooth continuous scroll
-    rtl: false, // to make it move right to left
     pauseOnHover: true,
-    // waitForAnimate: false,
-    arrows: false, // REMOVE NEXT & PREVIOUS BUTTONS
+    arrows: false,
 
-    slidesToShow: 4,
+    slidesToShow: 1,
     slidesToScroll: 1,
-
-    responsive: [
-      {
-        breakpoint: 768, // mobile and tablet screens
-        settings: {
-          slidesToShow: 1, // show 1 image
-          slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "0px", // remove extra padding
-        },
-      },
-    ],
+    variableWidth: true, // 🔥 KEY FIX
   };
 
   const images = [
@@ -79,43 +65,46 @@ const PauseOnHover = () => {
   ];
 
   return (
-    <div className="bg-green700 relative px-6 md:px-10 lg:px-16 xl:px-28">
+    <div className="px-6 md:px-10 lg:px-16 xl:px-28">
       <p className="text-center text-2xl font-bold mb-8">
         Captured moments from events and performances
       </p>
+
       {/* TOP SLIDER → Left to Right */}
-      <div className="slider-container mx-auto overflow-hidden">
-        <Slider {...{ ...baseSettings, rtl: false }}>
-          {images.map((src, index) => (
-            <div key={index} className="px-6">
+      <Slider {...baseSettings} rtl={false}>
+        {images.map((src, index) => (
+          <div key={index} className="px-6 py-10">
+            <div className="w-[280px] h-[220px]">
+              {/* 🔥 FIXED SIZE */}
               <img
                 src={src}
-                alt={`gallery-${index}`}
-                className="rounded-xl w-[250px] h-[200px] object-cover"
+                className="rounded-xl w-full h-full object-cover"
               />
             </div>
-          ))}
-        </Slider>
-      </div>
+          </div>
+        ))}
+      </Slider>
 
       {/* BOTTOM SLIDER → Right to Left */}
-      <div className="slider-container mx-auto overflow-hidden mt-6 md:mt-14">
-        <Slider {...{ ...baseSettings, rtl: true }}>
-          {images.map((src, index) => (
-            <div key={index} className="px-6">
+      <Slider {...baseSettings} rtl={true}>
+        {images.map((src, index) => (
+          <div key={index} className="px-6">
+            <div className="w-[280px] h-[220px]">
+              {/* 🔥 FIXED SIZE */}
               <img
                 src={src}
-                alt={`gallery-${index}`}
-                className="rounded-xl w-[250px] h-[200px] object-cover"
+                className="rounded-xl w-full h-full object-cover"
               />
             </div>
-          ))}
-        </Slider>
-      </div>
+          </div>
+        ))}
+      </Slider>
+
       <Link
         to="/events"
         className="mt-4 block px-10 py-2 bg-red-500 text-white 
-hover:bg-white hover:text-red-500 border border-red-500 w-fit text-center mb-10 transition-all duration-300"
+        hover:bg-white hover:text-red-500 border border-red-500 
+        w-fit text-center mb-10 transition-all duration-300"
       >
         View All
       </Link>
