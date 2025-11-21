@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UpcomingPastEvents from "../../components/HomeComp/UpcomingPastEvents"
+import UpcomingPastEvents from "../../components/HomeComp/UpcomingPastEvents";
 import at1 from "../../assets/attendee1.webp";
 import at2 from "../../assets/attendee2.webp";
 import at3 from "../../assets/attendee3.webp";
@@ -72,7 +72,6 @@ const details = [
   { image: at33, desc: "Los Angeles Event", category: "Los Angeles" },
 ];
 
-
 const PEG = () => {
   const [selectedCategory, setSelectedCategory] = useState("All Events");
 
@@ -83,7 +82,7 @@ const PEG = () => {
       : details.filter((item) => item.category === selectedCategory);
 
   return (
-    <div className="md:py-24 px-24 md:px-36 ">
+    <div className="md:py-24 px-2 sm:px-24 md:px-36 ">
       {/* px-24 md:px-36  */}
       {/* Title */}
       <div className="text-center font-medium text-[28px] sm:text-[33px] leading-relaxed text-[rgb(0,29,56)] transition-transform duration-300 pt-10 sm:pt-2">
