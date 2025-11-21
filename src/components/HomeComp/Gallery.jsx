@@ -71,9 +71,10 @@ const PauseOnHover = () => {
       </p>
 
       {/* TOP SLIDER → Left to Right */}
-      <Slider {...baseSettings} rtl={false}>
+      <Slider {...baseSettings} rtl={false} className="custom-slider">
+        {/* The className="custom-slider" helps eradicate the wide vertical gap created by the react slick itself. IT CODES ARE IN THE INDEX.CSS */}
         {images.map((src, index) => (
-          <div key={index} className="px-6 py-10">
+          <div key={index} className="px-6 md:py-10">
             <div className="w-[280px] h-[220px]">
               {/* 🔥 FIXED SIZE */}
               <img
@@ -86,19 +87,22 @@ const PauseOnHover = () => {
       </Slider>
 
       {/* BOTTOM SLIDER → Right to Left */}
-      <Slider {...baseSettings} rtl={true}>
-        {images.map((src, index) => (
-          <div key={index} className="px-6">
-            <div className="w-[280px] h-[220px]">
-              {/* 🔥 FIXED SIZE */}
-              <img
-                src={src}
-                className="rounded-xl w-full h-full object-cover"
-              />
+      <div className="slider-container mx-auto overflow-hidden mt-2">
+        {/* The className="custom-slider" helps eradicate the wide vertical gap created by the react slick itself. IT CODES ARE IN THE INDEX.CSS */}
+        <Slider {...baseSettings} rtl={true} className="custom-slider">
+          {images.map((src, index) => (
+            <div key={index} className="px-6">
+              <div className="w-[280px] h-[220px]">
+                {/* 🔥 FIXED SIZE */}
+                <img
+                  src={src}
+                  className="rounded-xl w-full h-full object-cover"
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
 
       <Link
         to="/events"

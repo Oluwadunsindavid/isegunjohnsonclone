@@ -28,3 +28,25 @@ body {
     opacity: 1;
   }
 }
+
+
+
+/* Fix gaps and force fixed width on mobile */
+.custom-slider .slick-track {
+  display: flex !important;
+  align-items: center;  /* vertically center items */
+}
+
+.custom-slider .slick-slide {
+  display: flex !important;
+  justify-content: center; /* center the slide content */
+  margin: 0 !important; /* remove extra margin added by slick */
+  padding: 12px 0 4px 0 !important;
+  height: auto !important;
+}
+
+/* Optional: prevent overflow issues on mobile */
+.custom-slider {
+  overflow: hidden !important;
+}
+
