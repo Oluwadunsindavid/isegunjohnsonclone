@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <div
       id="home"
-      className="relative w-full h-[900px] bg-cover bg-center p-4"
+      className="relative w-full h-[750px] md:h-[900px] bg-cover bg-center p-4"
       style={{
         backgroundImage: `url(${BGImg})`,
       }}
