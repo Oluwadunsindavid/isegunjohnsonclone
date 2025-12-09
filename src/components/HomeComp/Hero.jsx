@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <div
       id="home"
-      className="relative w-full h-[750px] md:h-[900px] bg-cover bg-center p-4"
+      className="relative w-full h-screen bg-cover bg-center p-4"
       style={{
         backgroundImage: `url(${BGImg})`,
       }}
@@ -45,7 +45,7 @@ const Hero = () => {
         </div>
       </div>
       {/* buttom div */}
-      <div className="relative flex items-center justify-between w-full mt-3.5">
+      {/* <div className="relative flex items-center justify-between w-full mt-3.5">
         <div className="absolute bottom-0 w-full flex flex-col md:flex-row space-y-8 md:space-y-0 items-center justify-between px-6 md:px-10 lg:px-16 xl:px-28">
           <div className=" w-64 flex justify-between items-center ">
             <div className="w-full">
@@ -66,6 +66,26 @@ const Hero = () => {
             className="border group border-red-600 bg-transparent hover:bg-red-600 px-8 py-2"
           >
             <IoMdPlay className="text-red-600 group-hover:text-white group-hover:bg-red-600  text-4xl" />
+          </Link>
+        </div>
+      </div> */}
+      {/* Bottom sticky div */}
+      <div className="absolute bottom-0 left-0 w-full px-6 md:px-10 lg:px-16 xl:px-28 mb-4">
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="flex w-64 items-center">
+            <img src={musicImg} className="w-24" />
+            <div className="ml-6 text-white">
+              <h1 className="text-3xl font-semibold">Mama</h1>
+              <p>Apr 22, 2022</p>
+              <p className="mt-4">Latest release</p>
+            </div>
+          </div>
+
+          <Link
+            to="https://music.apple.com/ng/album/mama/1614173148?i=1614173149"
+            className="border group border-red-600 bg-transparent hover:bg-red-600 px-8 py-2"
+          >
+            <IoMdPlay className="text-red-600 group-hover:text-white text-4xl" />
           </Link>
         </div>
       </div>
