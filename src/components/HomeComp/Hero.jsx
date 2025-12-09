@@ -23,8 +23,8 @@ const Hero = () => {
         }}
       ></div>
 
-      <div className="relative text-white flex items-center justify-center h-full ">
-        <div className="flex flex-col justify-center items-center gap-4">
+      <div className="relative text-white flex items-center justify-center h-full">
+        <div className="flex flex-col justify-center items-center gap-4 mb-40 bg-whit">
           <h1 className=" text-[40px] sm:text-[80px] md:text-[120px] leading-relaxed text-center font-semibold mb-10 transition-all duration-100">
             SEGUN JOHNSON
           </h1>
@@ -70,7 +70,7 @@ const Hero = () => {
         </div>
       </div> */}
       {/* Bottom sticky div */}
-      <div className="bgamber-300 absolute bottom-0 left-0 w-full px-6 md:py-0 md:px-10 lg:px-16 xl:px-28 mb-10">
+      <div className="absolute bottom-0 left-0 w-full px-6 md:py-0 md:px-10 lg:px-16 xl:px-28 mb-16">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex w-64 items-center">
             <img src={musicImg} className="w-24" />
