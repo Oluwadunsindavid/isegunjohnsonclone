@@ -70,7 +70,7 @@ const Hero = () => {
         </div>
       </div> */}
       {/* Bottom sticky div */}
-      <div className="bgamber-300 absolute bottom-0 left-0 w-full px-6 md:py-0 md:px-10 lg:px-16 xl:px-28 mb-4">
+      <div className="bgamber-300 absolute bottom-0 left-0 w-full px-6 md:py-0 md:px-10 lg:px-16 xl:px-28 mb-10">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex w-64 items-center">
             <img src={musicImg} className="w-24" />
