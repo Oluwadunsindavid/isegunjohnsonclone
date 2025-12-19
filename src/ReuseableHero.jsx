@@ -1,3 +1,4 @@
+// Use for the event page and contact page Hero sections
 import React from "react";
 import BGImg from "./assets/Segun10.webp"
 
