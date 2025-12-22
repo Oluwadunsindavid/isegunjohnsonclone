@@ -156,8 +156,9 @@
 
 // export default YouTubePlaylists;
 
-
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../framerMotion/variants";
 
 const YouTubePlaylists = () => {
   const [videos, setVideos] = useState([]);
@@ -201,85 +202,100 @@ const YouTubePlaylists = () => {
 
   return (
     <div className="mt-20 px-4 md:px-10 lg:px-20 xl:px-28 mb-32">
-      <div className="mb-10 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold">
-          YouTube <span className="text-black">Playlists</span>
-        </h1>
-        <div className="w-24 h-1 bg-orange-500 mx-auto mt-3"></div>
-      </div>
-
-      {loading && (
-        <p className="text-center text-gray-500">Loading videos...</p>
-      )}
-      {error && <p className="text-center text-red-500">Error: {error}</p>}
-
-      {!loading && !error && videos.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {videos.map((video) => {
-            const vid = video.id.videoId;
-            const isActive = activeVideoId === vid;
-
-            const thumb =
-              video.snippet?.thumbnails?.medium?.url ||
-              video.snippet?.thumbnails?.default?.url ||
-              "";
-
-            return (
-              <div
-                key={vid}
-                className="w-full max-w-sm mx-auto rounded-xl overflow-hidden shadow-lg flex flex-col"
-              >
-                <div className="w-full">
-                  {isActive ? (
-                    <div className="aspect-video w-full">
-                      <iframe
-                        className="w-full h-full"
-                        src={`https://www.youtube.com/embed/${vid}?autoplay=1&rel=0`}
-                        title={video.snippet?.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  ) : (
-                    <button
-                      onClick={() => togglePlayer(vid)}
-                      className="relative w-full aspect-video overflow-hidden"
-                    >
-                      <img
-                        src={thumb}
-                        alt={video.snippet?.title || "Video thumbnail"}
-                        className="w-full h-full object-cover"
-                      />
-
-                      {/* Play icon */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="bg-black/40 rounded-full p-3">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            className="w-8 h-8 text-white"
-                            fill="currentColor"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </button>
-                  )}
-                </div>
-
-                <h3 className="text-lg font-semibold mt-2 px-4 text-center line-clamp-2">
-                  {video.snippet?.title}
-                </h3>
-              </div>
-            );
-          })}
+      <motion.h2
+        variants={fadeIn("up", 0.25)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0 }}
+      >
+        {" "}
+        <div className="mb-10 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold">
+            YouTube <span className="text-black">Playlists</span>
+          </h1>
+          <div className="w-24 h-1 bg-orange-500 mx-auto mt-3"></div>
         </div>
-      )}
+      </motion.h2>
 
-      {!loading && !error && videos.length === 0 && (
-        <p className="text-center text-gray-500">No videos available.</p>
-      )}
+      <motion.h2
+        variants={fadeIn("up", 0.5)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0 }}
+      >
+        {loading && (
+          <p className="text-center text-gray-500">Loading videos...</p>
+        )}
+        {error && <p className="text-center text-red-500">Error: {error}</p>}
+
+        {!loading && !error && videos.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {videos.map((video) => {
+              const vid = video.id.videoId;
+              const isActive = activeVideoId === vid;
+
+              const thumb =
+                video.snippet?.thumbnails?.medium?.url ||
+                video.snippet?.thumbnails?.default?.url ||
+                "";
+
+              return (
+                <div
+                  key={vid}
+                  className="w-full max-w-sm mx-auto rounded-xl overflow-hidden shadow-lg flex flex-col"
+                >
+                  <div className="w-full">
+                    {isActive ? (
+                      <div className="aspect-video w-full">
+                        <iframe
+                          className="w-full h-full"
+                          src={`https://www.youtube.com/embed/${vid}?autoplay=1&rel=0`}
+                          title={video.snippet?.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => togglePlayer(vid)}
+                        className="relative w-full aspect-video overflow-hidden"
+                      >
+                        <img
+                          src={thumb}
+                          alt={video.snippet?.title || "Video thumbnail"}
+                          className="w-full h-full object-cover"
+                        />
+
+                        {/* Play icon */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="bg-black/40 rounded-full p-3">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              className="w-8 h-8 text-white"
+                              fill="currentColor"
+                            >
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </div>
+                        </div>
+                      </button>
+                    )}
+                  </div>
+
+                  <h3 className="text-lg font-semibold mt-2 px-4 text-center line-clamp-2">
+                    {video.snippet?.title}
+                  </h3>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {!loading && !error && videos.length === 0 && (
+          <p className="text-center text-gray-500">No videos available.</p>
+        )}
+      </motion.h2>
     </div>
   );
 };

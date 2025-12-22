@@ -50,3 +50,18 @@ body {
   overflow: hidden !important;
 }
 
+/* To make the logo rotate just like a playing disk */
+@layer utilities {
+  .animate-disk {
+    animation: disk-spin 5s linear infinite;
+  }
+}
+
+@keyframes disk-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -9,6 +9,8 @@ import washington from "../../assets/washington.webp";
 import LA from "../../assets/los-angeles.webp";
 import EventCard from "./EventCard";
 import PastEventCard from "./PastEventCard";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../framerMotion/variants";
 
 const events = [
   {
@@ -107,29 +109,37 @@ const UpcomingPastEvents = ({
 }) => {
   return (
     // passed in padding as props so that the component will be reuseable in the event page, but with a different padding
-    <div className={padding}>
-      {/* Header */}
-      <div className="mb-10 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-black">
-          Upcoming & Past Events
-        </h1>
-        <div className="w-24 h-1 bg-orange-500 mx-auto mt-3"></div>
-      </div>
+    <motion.h2
+      variants={fadeIn("down", 0.2)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0 }}
+      className={padding}
+    >
+      <div>
+        {/* Header */}
+        <div className="mb-10 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-black">
+            Upcoming & Past Events
+          </h1>
+          <div className="w-24 h-1 bg-orange-500 mx-auto mt-3"></div>
+        </div>
 
-      {/* Events Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        {events.map((event, index) => (
-          <EventCard event={event} key={index} />
-        ))}
-      </div>
+        {/* Events Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+          {events.map((event, index) => (
+            <EventCard event={event} key={index} />
+          ))}
+        </div>
 
-      {/* PastEvent Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-        {pastEvents.map((pastEvent, index) => (
-          <PastEventCard pastEvent={pastEvent} key={index} />
-        ))}
+        {/* PastEvent Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+          {pastEvents.map((pastEvent, index) => (
+            <PastEventCard pastEvent={pastEvent} key={index} />
+          ))}
+        </div>
       </div>
-    </div>
+    </motion.h2>
   );
 };
 

@@ -6,9 +6,11 @@ import { BiHeart } from "react-icons/bi";
 import { HashLink } from "react-router-hash-link";
 // You can hide the background image section on every page except the Home page by detecting the current route using useLocation() from React Router.
 import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../framerMotion/variants";
 
 const Contact = () => {
-  const location = useLocation;
+  const location = useLocation();
   // find the path
   const isHomePage = location.pathname === "/";
 
@@ -17,27 +19,34 @@ const Contact = () => {
       {/* TOP SECTION WITH BACKGROUND + FADE */}
       {/* Also shows the image below only in the home page ONLY and does not appear in other pages */}
       {isHomePage && (
-        <div
-          className="relative w-full h-[350px] bg-cover bg-center flex flex-col items-center justify-center text-white"
-          style={{
-            backgroundImage: `url(${bgImg})`,
-          }}
+        <motion.h2
+          variants={fadeIn("down", 0.2)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0 }}
         >
-          {/* Optional Dark Overlay */}
-          <div className="absolute inset-0 bg-black/30"></div>
-          {/* Fade at bottom */}
-          <div className="absolute inset-0 bg-linear-to-b from-transparent via-[rgb(0,29,56)]/60 to-[rgb(0,29,56)]"></div>
-
-          {/* Content above fade */}
-          <h1 className="text-5xl font-bold z-10 mb-6">Contact For RSVP</h1>
-
-          <Link
-            to="#"
-            className="z-10 bg-red-600 text-white px-10 py-3 font-semibold hover:bg-transparent border border-red-600 hover:text-red-600 transition-all duration-300"
+          <div
+            className="relative w-full h-[350px] bg-cover bg-center flex flex-col items-center justify-center text-white"
+            style={{
+              backgroundImage: `url(${bgImg})`,
+            }}
           >
-            Contact Me
-          </Link>
-        </div>
+            {/* Optional Dark Overlay */}
+            <div className="absolute inset-0 bg-black/30"></div>
+            {/* Fade at bottom */}
+            <div className="absolute inset-0 bg-linear-to-b from-transparent via-[rgb(0,29,56)]/60 to-[rgb(0,29,56)]"></div>
+
+            {/* Content above fade */}
+            <h1 className="text-5xl font-bold z-10 mb-6">Contact For RSVP</h1>
+
+            <Link
+              to="#"
+              className="z-10 bg-red-600 text-white px-10 py-3 font-semibold hover:bg-transparent border border-red-600 hover:text-red-600 transition-all duration-300"
+            >
+              Contact Me
+            </Link>
+          </div>
+        </motion.h2>
       )}
 
       {/* LOWER SECTION (same deep blue background) */}

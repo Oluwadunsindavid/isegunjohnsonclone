@@ -23,6 +23,8 @@ import img20 from "../../assets/20.webp";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../framerMotion/variants";
 
 const PauseOnHover = () => {
   const baseSettings = {
@@ -65,33 +67,22 @@ const PauseOnHover = () => {
   ];
 
   return (
-    <div className="px-6 md:px-10 lg:px-16 xl:px-28">
-      <p className="text-center text-2xl font-bold mb-8">
-        Captured moments from events and performances
-      </p>
+    <motion.h2
+      variants={fadeIn("down", 0.7)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0 }}
+    >
+      <div className="px-6 md:px-10 lg:px-16 xl:px-28">
+        <p className="text-center text-2xl font-bold mb-8">
+          Captured moments from events and performances
+        </p>
 
-      {/* TOP SLIDER → Left to Right */}
-      <Slider {...baseSettings} rtl={false} className="custom-slider">
-        {/* The className="custom-slider" helps eradicate the wide vertical gap created by the react slick itself. IT CODES ARE IN THE INDEX.CSS */}
-        {images.map((src, index) => (
-          <div key={index} className="px-6 md:py-10">
-            <div className="w-[280px] h-[220px]">
-              {/* 🔥 FIXED SIZE */}
-              <img
-                src={src}
-                className="rounded-xl w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        ))}
-      </Slider>
-
-      {/* BOTTOM SLIDER → Right to Left */}
-      <div className="slider-container mx-auto overflow-hidden mt-2">
-        {/* The className="custom-slider" helps eradicate the wide vertical gap created by the react slick itself. IT CODES ARE IN THE INDEX.CSS */}
-        <Slider {...baseSettings} rtl={true} className="custom-slider">
+        {/* TOP SLIDER → Left to Right */}
+        <Slider {...baseSettings} rtl={false} className="custom-slider">
+          {/* The className="custom-slider" helps eradicate the wide vertical gap created by the react slick itself. IT CODES ARE IN THE INDEX.CSS */}
           {images.map((src, index) => (
-            <div key={index} className="px-6">
+            <div key={index} className="px-6 md:py-10">
               <div className="w-[280px] h-[220px]">
                 {/* 🔥 FIXED SIZE */}
                 <img
@@ -102,17 +93,35 @@ const PauseOnHover = () => {
             </div>
           ))}
         </Slider>
-      </div>
 
-      <Link
-        to="/events"
-        className="mt-4 block px-10 py-2 bg-red-500 text-white 
+        {/* BOTTOM SLIDER → Right to Left */}
+        <div className="slider-container mx-auto overflow-hidden mt-2">
+          {/* The className="custom-slider" helps eradicate the wide vertical gap created by the react slick itself. IT CODES ARE IN THE INDEX.CSS */}
+          <Slider {...baseSettings} rtl={true} className="custom-slider">
+            {images.map((src, index) => (
+              <div key={index} className="px-6">
+                <div className="w-[280px] h-[220px]">
+                  {/* 🔥 FIXED SIZE */}
+                  <img
+                    src={src}
+                    className="rounded-xl w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+
+        <Link
+          to="/events"
+          className="mt-4 block px-10 py-2 bg-red-500 text-white 
         hover:bg-white hover:text-red-500 border border-red-500 
         w-fit text-center mb-10 transition-all duration-300"
-      >
-        View All
-      </Link>
-    </div>
+        >
+          View All
+        </Link>
+      </div>
+    </motion.h2>
   );
 };
 

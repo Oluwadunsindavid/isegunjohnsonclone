@@ -199,7 +199,7 @@ const Navbar = () => {
     >
       {/* Logo */}
       <Link to="/" className="font-bold md:w-full">
-        <div className="w-12 h-12">
+        <div className="w-12 h-12 animate-disk">
           <img src={logo} alt="Logo" />
         </div>
       </Link>
