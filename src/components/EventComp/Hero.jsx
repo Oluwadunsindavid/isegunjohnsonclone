@@ -1,14 +1,23 @@
 import React from "react";
 import ReuseableHero from "../../ReuseableHero";
+import { motion } from "framer-motion";
+import { fadeIn } from "../../framerMotion/variants";
 
 const Hero = () => {
   return (
-    <div>
-      <ReuseableHero
-        text1={"Upcoming Events"}
-        text2={"Experience unforgettable live performances"}
-      />
-    </div>
+    <motion.h2
+      variants={fadeIn("down", 0.2)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0 }}
+    >
+      <div>
+        <ReuseableHero
+          text1={"Upcoming Events"}
+          text2={"Experience unforgettable live performances"}
+        />
+      </div>
+    </motion.h2>
   );
 };
 
