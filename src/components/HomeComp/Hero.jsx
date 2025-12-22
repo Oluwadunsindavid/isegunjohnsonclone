@@ -91,32 +91,26 @@ const Hero = () => {
         </div>
       </div> */}
         {/* Bottom sticky div */}
-        <motion.h2
-          variants={fadeIn("up", 0.35)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0 }}
-        >
-          <div className="absolute bottom-0 left-0 w-full px-6 md:py-0 md:px-10 lg:px-16 xl:px-28 mb-16">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="flex w-64 items-center">
-                <img src={musicImg} className="w-24" />
-                <div className="ml-6 text-white">
-                  <h1 className="text-3xl font-semibold">Mama</h1>
-                  <p>Apr 22, 2022</p>
-                  <p className="mt-4">Latest release</p>
-                </div>
-              </div>
 
-              <Link
-                to="https://music.apple.com/ng/album/mama/1614173148?i=1614173149"
-                className="border group border-red-600 bg-transparent hover:bg-red-600 px-8 py-2"
-              >
-                <IoMdPlay className="text-red-600 group-hover:text-white text-4xl" />
-              </Link>
+        <div className="absolute bottom-0 left-0 w-full px-6 md:py-0 md:px-10 lg:px-16 xl:px-28 mb-16">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex w-64 items-center">
+              <img src={musicImg} className="w-24" />
+              <div className="ml-6 text-white">
+                <h1 className="text-3xl font-semibold">Mama</h1>
+                <p>Apr 22, 2022</p>
+                <p className="mt-4">Latest release</p>
+              </div>
             </div>
+
+            <Link
+              to="https://music.apple.com/ng/album/mama/1614173148?i=1614173149"
+              className="border group border-red-600 bg-transparent hover:bg-red-600 px-8 py-2"
+            >
+              <IoMdPlay className="text-red-600 group-hover:text-white text-4xl" />
+            </Link>
           </div>
-        </motion.h2>
+        </div>
       </div>
     </motion.h2>
   );

@@ -37,7 +37,7 @@ const Contact = () => {
             <div className="absolute inset-0 bg-linear-to-b from-transparent via-[rgb(0,29,56)]/60 to-[rgb(0,29,56)]"></div>
 
             {/* Content above fade */}
-            <h1 className="text-5xl font-bold z-10 mb-6">Contact For RSVP</h1>
+            <h1 className="text-5xl text-center font-bold z-10 mb-6">Contact For RSVP</h1>
 
             <Link
               to="#"
