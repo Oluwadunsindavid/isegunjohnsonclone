@@ -18,9 +18,3 @@
       },
     };
   };
-
-
-    // variants={fadeIn("down", 0.2)}
-    //     initial="hidden"
-    //     whileInView="show"
-    //     viewport={{ once: false, amount: 0 }}
